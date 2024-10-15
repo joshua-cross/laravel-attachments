@@ -168,7 +168,7 @@ class Attachment extends Model implements AttachmentContract
         $this->filename = $filename;
         $this->filepath = $this->filepath ?: ($this->getStorageDirectory() . $this->getPartitionDirectory() . $this->getDiskName());
 
-        $driver->putStream($this->filepath, $stream);
+        $driver->put($this->filepath, $stream);
 
         $this->filesize = $driver->size($this->filepath);
         $this->filetype = $driver->mimeType($this->filepath);
